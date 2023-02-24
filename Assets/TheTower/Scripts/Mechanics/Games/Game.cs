@@ -10,17 +10,19 @@ public class Game : MonoBehaviour
 
     private EnemiesSpawner EnemiesSpawner;
     private EnemiesFactory EnemiesFactory;
+    private SpawnByWaves SpawnByWaves;
     
 
     private void Awake()
     {
         EnemiesFactory = new EnemiesFactory(ContentService);
         EnemiesSpawner = new EnemiesSpawner(Tower, EnemiesFactory,waves);
+        SpawnByWaves = new SpawnByWaves(waves, EnemiesSpawner, EnemiesFactory);
         Tower.Construct(ContentService, new EnemiesDetecter(EnemiesFactory, Tower));
     }
 
     private void Update()
     {
-        EnemiesSpawner.WavesSpawn();
+        SpawnByWaves.WavesSpawn();
     }
 }

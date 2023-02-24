@@ -230,9 +230,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waveSettings:
-  - AmountEnemies: 20
   - AmountEnemies: 5
-  - AmountEnemies: 10
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
