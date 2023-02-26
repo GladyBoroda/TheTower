@@ -7,7 +7,7 @@ public class EnemiesDetecter
 {
     private EnemiesFactory enemiesFactory;
     private Tower Tower;
-    private float Radius = 12;
+    private float Radius = 5;
 
     public EnemiesDetecter(EnemiesFactory enemiesFactory, Tower tower)
     {
@@ -22,7 +22,7 @@ public class EnemiesDetecter
         {
             return false;
         }
-        
+
         float minDistans = float.MaxValue;
 
         foreach (var item in enemiesFactory.enemies)
@@ -37,11 +37,8 @@ public class EnemiesDetecter
                     enemy = item;
                 }
             }
-            else
-            {
-                return false;
-            }
         }
-        return true;
+
+        return enemy != null;
     }
 }

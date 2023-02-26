@@ -21,28 +21,28 @@ public class SpawnByWaves
     public void WavesSpawn()
     {
         WaveSettings[] ArrayWave = Waves.waveSettings;
+
         if (Timer > 0)
         {
             Timer -= Time.deltaTime;
         }
         else
         {
-            if (WaveIndex < Waves.waveSettings.Length)
-            {
-                if (ArrayWave[WaveIndex].AmountEnemies > 0)
-                {
-                    Timer = Random.Range(0.1f, 0.7f);
-                    EnemiesSpawner.Spawn();
-                    ArrayWave[WaveIndex].AmountEnemies--;
-                }
+            if (WaveIndex >= Waves.waveSettings.Length) return;
 
-                if (ArrayWave[WaveIndex].AmountEnemies == 0)
+            if (ArrayWave[WaveIndex].AmountEnemies > 0)
+            {
+                Timer = Random.Range(0.1f, 0.7f);
+                EnemiesSpawner.Spawn();
+                ArrayWave[WaveIndex].AmountEnemies--;
+            }
+
+            if (ArrayWave[WaveIndex].AmountEnemies == 0)
+            {
+                if (EnemiesFactory.enemies.Count == 0)
                 {
-                    if (EnemiesFactory.enemies.Count == 0)
-                    {
-                        WaveIndex++;
-                        Debug.Log(WaveIndex);
-                    }
+                    WaveIndex++;
+                    Debug.Log(WaveIndex);
                 }
             }
         }
