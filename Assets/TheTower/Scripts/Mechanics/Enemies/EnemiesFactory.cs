@@ -21,5 +21,4 @@ public class EnemiesFactory
 
         return enemy;
     }
-
 }

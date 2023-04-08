@@ -7,12 +7,13 @@ public class Game : MonoBehaviour
     public ContentService ContentService;
     public Tower Tower;
     public Waves waves;
+    public TheValueOfSkills TheValueOfSkills;
 
     private EnemiesSpawner EnemiesSpawner;
     private EnemiesFactory EnemiesFactory;
     private SpawnByWaves SpawnByWaves;
+    private ChangeSkillsOnClick ChangeSkillsOnClick;
     
-
     private void Awake()
     {
         EnemiesFactory = new EnemiesFactory(ContentService);
@@ -23,6 +24,6 @@ public class Game : MonoBehaviour
 
     private void Update()
     {
-        SpawnByWaves.WavesSpawn();
+        SpawnByWaves.WavesSpawn(); 
     }
 }

@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class EnemiesSpawner 
+public class EnemiesSpawner
 {
     private Waves Waves;
     private Tower Tower;
     private EnemiesFactory EnemiesFactory;
     private float radius = 14;
-    
 
     public EnemiesSpawner(Tower tower, EnemiesFactory enemiesFactory, Waves waves)
     {
@@ -25,6 +24,6 @@ public class EnemiesSpawner
         var spawnPoint = randomVector3 * Random.Range(radius - 2, radius + 2) + Tower.transform.position;
 
         var enemy = EnemiesFactory.Spawn(spawnPoint, Quaternion.identity);
-        enemy.SetTarget(Tower.transform);
+        enemy.SetTarget(Tower);
     }
 }
